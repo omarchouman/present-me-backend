@@ -1,11 +1,15 @@
 //any configurations of my express server
 import express from 'express';
 import cors from 'cors';
+const express = require('express');
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 
 const app = express();
 app.use(cors());
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 dotenv.config();
 
 mongoose.connect(`mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.itkv6.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`, {
