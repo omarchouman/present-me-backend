@@ -11,7 +11,7 @@ export const getSub = async (req, res) => {
 
 export const createSub = async (req, res) => {
   const newElement = new Subcategoriess({
-    imgUrl: req.body.imgUrl,
+    image: req.body.image,
     title: req.body.title,
   });
   try {
@@ -23,8 +23,8 @@ export const createSub = async (req, res) => {
 };
 
 export const updateSub = async (req, res) => {
-  if (req.body.imgUrl != null) {
-    res.searchElementById.imgUrl = req.body.imgUrl;
+  if (req.body.image != null) {
+    res.searchElementById.image = req.body.image;
   }
   if (req.body.title != null) {
     res.searchElementById.title = req.body.title;
@@ -40,7 +40,7 @@ export const updateSub = async (req, res) => {
 export const deleteSub = async (req, res) => {
   try {
     await res.searchElementById.remove();
-    res.json({ message: "Deleted Subscriber" });
+    res.json({ message: "Deleted Subcategory" });
   } catch (err) {
     return res.status(500).json({ message: err.message });
   }
@@ -55,7 +55,7 @@ export const getElementid = async (req, res, next) => {
     try {
       searchElementById = await Subcategoriess.findById(req.params.id);
       if (searchElementById == null) {
-        return res.status(404).json({ message: "Cannot find subscriber" });
+        return res.status(404).json({ message: "Cannot Find Subcategory" });
       }
     } catch (err) {
       return res.status(500).json({ message: err.message });

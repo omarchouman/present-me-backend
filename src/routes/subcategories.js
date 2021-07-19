@@ -8,16 +8,16 @@ import {
   getbyidSub,
   getElementid,
 } from "../controllers/subcategoriesController.js";
-const router = express.Router();
+const app = express();
 
-router.get("/:id", getElementid, getbyidSub);
+app.get("/subcategories/get/:id", getElementid, getbyidSub);
 
-router.get("/", getSub);
+app.get("/subcategories/get", getSub);
 
-router.post("/", createSub);
+app.post("/subcategories/create", createSub);
 
-router.patch("/:id", getElementid, updateSub);
+app.put("/subcategories/update/:id", getElementid, updateSub);
 
-router.delete("/:id", getElementid, deleteSub);
+app.delete("/subcategories/delete/:id", getElementid, deleteSub);
 
-export default router;
+export default app;

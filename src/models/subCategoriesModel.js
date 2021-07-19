@@ -3,11 +3,11 @@ const Schema = mongoose.Schema;
 const subcategoriesSchema = mongoose.Schema({
   image: {
     type: String,
-    require: true,
+    required: true,
   },
   title: {
     type: String,
-    require: true,
+    required: true,
   },
   
   
