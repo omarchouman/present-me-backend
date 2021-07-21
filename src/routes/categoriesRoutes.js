@@ -12,6 +12,6 @@ app.get("/categories/get/:categoryId", getCategory);
 
 app.post("/categories/create", createCategory);
 
-app.patch("/categories/update/:id", updateCategory);
+app.put("/categories/update/:id", updateCategory);
 
 app.delete("/categories/delete/:id", deleteCategory);

@@ -1,9 +1,14 @@
 import mongoose from "mongoose";
 
 const categoriesSchema = mongoose.Schema({
-    _id: mongoose.Schema.Types.ObjectId,
-    name: String,
-    image: String
+    title: {
+        type: String,
+        required: [true],
+    },
+    image: {
+        type: String,
+        required: [true],
+    }
 })
 
 var Category = mongoose.model('Category', categoriesSchema);

@@ -37,8 +37,7 @@ export const getCategory = async (req, res, next) => {
 
 export const createCategory = async (req, res) => {
     const newCategory = new Category({
-      _id: new mongoose.Types.ObjectId(),
-      name: req.body.name,
+      title: req.body.title,
       image: req.body.image
     });
     await newCategory
@@ -60,11 +59,11 @@ export const createCategory = async (req, res) => {
 
 export const updateCategory = async (req, res) => {
   const { id } = req.params;
-  const { name, image } = req.body;
+  const { title, image } = req.body;
   
   if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
 
-  const updatedCategory = { name, image, _id: id };
+  const updatedCategory = { title, image, _id: id };
 
   await Category.findByIdAndUpdate(id, updatedCategory, { new: true });
 
