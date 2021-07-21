@@ -2,7 +2,7 @@
 import User from "../models/adminModel.js";
 import { generateToken } from "../utils/generateToken.js";
 export const registerUser = async (req, res) => {
-  const { name, email, password, pic } = req.body;
+  const { name, email, password, isAdmin } = req.body;
   const userExists = await User.findOne({ email });
   if (userExists) {
     res.status(400);
@@ -12,7 +12,7 @@ export const registerUser = async (req, res) => {
     name,
     email,
     password,
-    pic,
+    isAdmin
   });
   if (user) {
     res.status(201).json({
@@ -20,7 +20,7 @@ export const registerUser = async (req, res) => {
       name: user.name,
       email: user.email,
       isAdmin: user.isAdmin,
-      pic: user.pic,
+
       token: generateToken(user._id),
     });
   } else {
@@ -38,7 +38,7 @@ export const authUser = async (req, res) => {
       name: user.name,
       email: user.email,
       isAdmin: user.isAdmin,
-      pic: user.pic,
+
       token: generateToken(user._id),
     });
   } else {
