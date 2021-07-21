@@ -8,6 +8,9 @@ const app = express();
 app.use(cors());
 dotenv.config();
 
+app.use(express.json());
+app.use(express.urlencoded());
+
 mongoose.connect(`mongodb+srv://presentme:TLZ7UcxWGYVX-pT@cluster0.itkv6.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`, {
     useNewUrlParser: true,
     useUnifiedTopology: true

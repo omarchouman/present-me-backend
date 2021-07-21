@@ -1,3 +1,4 @@
+import app from "../app";
 import Subcategoriess from "../models/subCategoriesModel.js";
 
 export const getSub = async (req, res) => {
@@ -63,3 +64,5 @@ export const getElementid = async (req, res, next) => {
     res.searchElementById = searchElementById;
     next();
   }
+
+  export default app;

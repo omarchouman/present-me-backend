@@ -1,4 +1,4 @@
-import express from "express";
+import app from "../app";
 
 import {
   getSub,
@@ -8,7 +8,7 @@ import {
   getbyidSub,
   getElementid,
 } from "../controllers/subcategoriesController.js";
-const app = express();
+
 
 app.get("/subcategories/get/:id", getElementid, getbyidSub);
 
@@ -20,4 +20,3 @@ app.put("/subcategories/update/:id", getElementid, updateSub);
 
 app.delete("/subcategories/delete/:id", getElementid, deleteSub);
 
-export default app;
