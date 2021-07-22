@@ -24,6 +24,10 @@ const SubEventSchema = new mongoose.Schema({
     required: [true, "Please add a Title"],
     maxlength: [50, "Title can not be more than 100 characters"],
   },
+  subcategory: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'SubCategrories'
+  },
   date: String,
 });
 
