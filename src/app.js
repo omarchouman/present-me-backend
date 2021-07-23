@@ -1,12 +1,16 @@
-//any configurations of my express server
-import express from 'express';
-import cors from 'cors';
-import mongoose from 'mongoose';
-import dotenv from 'dotenv';
+import express from "express";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+import Cors from "cors";
+import userRoutes from "./routes/adminRoute.js";
 
-const app = express();
-app.use(cors());
 dotenv.config();
+const app = express();
+
+const connection_url = `mongodb+srv://presentme:TLZ7UcxWGYVX-pT@cluster0.itkv6.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
+app.use(express.json());
+app.use(Cors());
+app.use("/admin", userRoutes);
 
 mongoose.connect(`mongodb+srv://presentme:TLZ7UcxWGYVX-pT@cluster0.itkv6.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`, {
     useNewUrlParser: true,
@@ -14,9 +18,10 @@ mongoose.connect(`mongodb+srv://presentme:TLZ7UcxWGYVX-pT@cluster0.itkv6.mongodb
 });
 
 mongoose.connection
-    .once('open', () => console.log("Database is connected successfully!"))
-    .on('error', (error) => {
-        console.log("We Have An Error: " + error);
-    });
+  .once("open", () => console.log("Database is connected successfully!"))
+  .on("error", (error) => {
+    console.log("We Have An Error: " + error);
+  });
 
-export default app;
+app.listen(8012, () => console.log("server running on port 8012"));
+// export default app;
