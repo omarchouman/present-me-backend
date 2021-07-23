@@ -6,7 +6,7 @@ import userRoutes from "./routes/adminRoute";
 
 app.use("/admin", userRoutes);
 
-app.listen(8003, ()=> console.log("server running on port 8003"));
+app.listen(8000, ()=> console.log("server running on port 8000"));
 
 
 
