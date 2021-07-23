@@ -9,16 +9,11 @@ import dotenv from "dotenv";
 const app = express();
 
 app.use(cors());
-
-// app.use(express.bodyParser());
-
 app.use(express.json()); 
 app.use(express.urlencoded()); 
 
-
-
 dotenv.config();
-const app = express();
+
 
 
 
@@ -26,6 +21,7 @@ mongoose.connect(`mongodb+srv://presentme:TLZ7UcxWGYVX-pT@cluster0.itkv6.mongodb
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    useCreateIndex: true,
   }
 );
 
