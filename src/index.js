@@ -1,4 +1,8 @@
 import app from './app';
+import categoriesRoutes from "./routes/categoriesRoutes";
+
+
+
 
 
 
