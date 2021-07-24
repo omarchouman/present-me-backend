@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
+import SubCategrories from './subCategoriesModel.js'
 const Schema = mongoose.Schema;
-const subcategoriesSchema = mongoose.Schema({
+const maincategoriesSchema = mongoose.Schema({
   imgUrl: {
     type: String,
     require: true,
@@ -9,13 +10,12 @@ const subcategoriesSchema = mongoose.Schema({
     type: String,
     require: true,
   },
-  events: [
+  reviews: [
     {
       type: Schema.Types.ObjectId,
-      ref: "SingleCategrories",
+      ref: "SubCategrories",
     },
   ],
-  
 });
 
-export default mongoose.model("SubCategrories", subcategoriesSchema);
+export default mongoose.model("MainbCategrories", maincategoriesSchema);

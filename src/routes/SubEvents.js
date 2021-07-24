@@ -1,18 +1,39 @@
 import app from "../app";
+
 import {
-  getSubevent,
-  getSubevents,
-  createSubevent,
-  updateSubevent,
-  deleteSubevent,
-} from "../controllers/SubEvents";
+  createSub,
+  updateSub,
+  deleteSub,
+  getElementid,
+} from "../controllers/SubEvents.js";
 
-app.get("/subevent", getSubevents);
+app.post("subevent/:id", createSub);
 
-app.get("/subevent/get/:id", getSubevent);
+app.patch("subevent/:id", getElementid, updateSub);
 
-app.post("/subevent/create", createSubevent);
+app.delete("subevent/:id", getElementid, deleteSub);
 
-app.put("/subevent/update/:id", updateSubevent);
 
-app.delete("/subevent/delete/:id", deleteSubevent);
+
+
+
+
+
+// import app from "../app";
+// import {
+//   getSubevent,
+//   getSubevents,
+//   createSubevent,
+//   updateSubevent,
+//   deleteSubevent,
+// } from "../controllers/SubEvents";
+
+// app.get("/subevent", getSubevents);
+
+// app.get("/subevent/get/:id", getSubevent);
+
+// app.post("/subevent/create", createSubevent);
+
+// app.put("/subevent/update/:id", updateSubevent);
+
+// app.delete("/subevent/delete/:id", deleteSubevent);

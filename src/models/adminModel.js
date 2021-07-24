@@ -23,7 +23,11 @@ const  userSchema = mongoose.Schema({
         require: true,
         default:false
     },
-
+    pic:{
+        type:String,
+        require: true,
+    },
+    
     
 })
 
@@ -39,4 +43,4 @@ userSchema.methods.matchPassword= async function (enteredPassword){
     return await bcrypt.compare(enteredPassword,this.password)
 }
 
-export default mongoose.model('Admin',userSchema)
+export default mongoose.model('User',userSchema)
