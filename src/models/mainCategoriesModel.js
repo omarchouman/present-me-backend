@@ -10,7 +10,7 @@ const maincategoriesSchema = mongoose.Schema({
     type: String,
     require: true,
   },
-  reviews: [
+  subcategories: [
     {
       type: Schema.Types.ObjectId,
       ref: "SubCategrories",

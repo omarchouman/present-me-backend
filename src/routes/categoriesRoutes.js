@@ -1,4 +1,4 @@
-import app from "../app";
+import express from "express";
 
 import {
   createSub,
@@ -7,25 +7,14 @@ import {
   getbyidSub,
   getElementid,
 } from "../controllers/categoriesController.js";
+const router = express.Router();
 
-app.get("maincategory/:id", getElementid, getbyidSub);
+router.get("/:id", getElementid, getbyidSub);
 
-app.post("maincategory", createSub);
+router.post("/", createSub);
 
-app.patch("maincategory/:id", getElementid, updateSub);
+router.patch("/:id", getElementid, updateSub);
 
-app.delete("maincategory/:id", getElementid, deleteSub);
+router.delete("/:id", getElementid, deleteSub);
 
-
-// import app from "../app";
-// import { createCategory, deleteCategory, getCategories, getCategory, updateCategory } from "../controllers/categoriesController.js";
-
-// app.get("/categories/get", getCategories);
-
-// app.get("/categories/get/:categoryId", getCategory);
-
-// app.post("/categories/create", createCategory);
-
-// app.put("/categories/update/:id", updateCategory);
-
-// app.delete("/categories/delete/:id", deleteCategory);
+export default router;
