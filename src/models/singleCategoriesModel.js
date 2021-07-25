@@ -9,6 +9,20 @@ const singlecategoriesSchema = mongoose.Schema({
     type: String,
     require: true,
   },
+  description: {
+    type: String,
+    require: true,
+  },
+  hostImg: {
+    type: String,
+    require: true,
+  },
+  hostname: {
+    type: String,
+    require: true,
+  },
+  
+  date: String,
   
 });
 
